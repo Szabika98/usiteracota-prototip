@@ -906,6 +906,8 @@
     var el = e.target;
     if (el.tagName === 'IMG' && !el.dataset.fb) {
       el.dataset.fb = 1;
+      var tile = el.closest('.shots button, .thumbs button');
+      if (tile) { tile.hidden = true; return; } // fotografie lipsă pe serverul sursă: ascundem miniatura
       el.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" fill="#f4f1ec"/><path d="M38 86V56a22 22 0 0 1 44 0v30z" fill="none" stroke="#d0c8bc" stroke-width="4"/></svg>');
     }
   }, true);
